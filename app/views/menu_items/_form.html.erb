@@ -11,27 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :menu_id %>
+  <%= hidden_field_tag 'current_menu_id', @current_menu_id%>
+
+  <div style="visibility: hidden;">
     <%= form.text_field :menu_id %>
   </div>
 
-  <div class="field">
-    <%= form.label :menu_item_name %>
-    <%= form.text_field :menu_item_name %>
+  <div class="Form-section">
+    <%= form.label :menu_item_name ,class:"FormInput-label" %>
+    <%= form.text_field :menu_item_name , class: "Form-input" %>
   </div>
 
-  <div class="field">
-    <%= form.label :menu_item_price %>
-    <%= form.text_field :menu_item_price %>
+  <div class="Form-section">
+    <%= form.label :menu_item_price ,class:"FormInput-label" %>
+    <%= form.text_field :menu_item_price, class: "Form-input" %>
   </div>
 
-  <div class="field">
-    <%= form.label :stock %>
-    <%= form.number_field :stock %>
+  <div class="Form-section">
+    <%= form.label :stock ,class:"FormInput-label" %>
+    <%= form.number_field :stock, class: "Form-input" %>
   </div>
 
-  <div class="actions">
+  <div class="Form-section">
     <%= form.submit %>
   </div>
 <% end %>

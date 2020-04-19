@@ -1,0 +1,10 @@
+.MenuItem {
+    max-width: 450px;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.NewMenuitem-title {
+    margin-bottom: 40px;
+    font-size: 30px;
+}

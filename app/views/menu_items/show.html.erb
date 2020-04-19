@@ -1,24 +1,26 @@
-<p id="notice"><%= notice %></p>
+<section class="MenuItem">
+  <p id="notice"><%= params[:notice] %></p>
 
-<p>
-  <strong>Menu:</strong>
-  <%= @menu_item.menu_id %>
-</p>
+  <p>
+    <strong>Menu:</strong>
+    <%= @menu_item.menu_id %>
+  </p>
 
-<p>
-  <strong>Menu item name:</strong>
-  <%= @menu_item.menu_item_name %>
-</p>
+  <p>
+    <strong>Menu item name:</strong>
+    <%= @menu_item.menu_item_name %>
+  </p>
 
-<p>
-  <strong>Menu item price:</strong>
-  <%= @menu_item.menu_item_price %>
-</p>
+  <p>
+    <strong>Menu item price:</strong>
+    <%= @menu_item.menu_item_price %>
+  </p>
 
-<p>
-  <strong>Stock:</strong>
-  <%= @menu_item.stock %>
-</p>
+  <p>
+    <strong>Stock:</strong>
+    <%= @menu_item.stock %>
+  </p>
 
-<%= link_to 'Edit', edit_menu_item_path(@menu_item) %> |
-<%= link_to 'Back', menu_items_path %>
+  <%= link_to 'Edit', edit_menu_item_path(@menu_item,:current_menu_id => @current_menu_id) %> |
+  <%= link_to 'Back', menu_items_path(:current_menu_id => @current_menu_id) %>
+</section>
