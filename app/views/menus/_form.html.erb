@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :menu_name %>
-    <%= form.text_field :menu_name %>
+  <div class="Form-section">
+    <%= form.label :menu_name ,class:"FormInput-label" %>
+    <%= form.text_field :menu_name , class: "Form-input"%>
   </div>
 
-  <div class="field">
-    <%= form.label :active %>
-    <%= form.check_box :active %>
+  <div class="Form-section">
+    <%= form.label :active ,class:"FormInput-label" %>
+    <%= form.check_box :active , class: "Form-input" %>
   </div>
 
-  <div class="actions">
+  <div class="Form-section">
     <%= form.submit %>
   </div>
 <% end %>

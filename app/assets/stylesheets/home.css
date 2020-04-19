@@ -25,7 +25,6 @@
     padding: 10px;
     margin-bottom: 10px;
     display: flex;
-    background-color: white;
     border-radius: 4px;
     justify-content: space-between;
 }
@@ -44,7 +43,7 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgb(102, 238, 97);
+    background-color: #ddd;
     overflow-x: auto;
     padding-top: 20px;
 }
@@ -60,12 +59,13 @@
 
 .sidenav a:hover {
     color: #f1f1f1;
-    background-color: rgb(255, 78, 78);
+    background-color: #4CAF50;
 }
 
 .main {
     margin-left: 135px;
     font-family: OpenSans-Semibold;
+    background-color: white;
     padding: 14px;
 }
 
