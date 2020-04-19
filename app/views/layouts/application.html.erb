@@ -14,14 +14,41 @@
       <p class="UserHeader main">
         Welcome <%= @current_user.first_name%> <%= link_to "Sign-out",destroy_session_path, method: "delete" %>
       </p>
+
+      <div class="sidenav">
+        <p> <%= link_to "Home ", home_path %> </p>
+
+        <% if @current_user.role == 'owner'%>
+          <p> <%= link_to "Menu" %> </p>
+        <% end %>
+
+        <p> <%= link_to "Menu items "%> </p>
+        <p> <%= link_to "Order items "%> </p>
+        <p> <%= link_to "Order " %> </p>
+        
+        <% if not (@current_user.role == "customer") %>
+          <p> <%= link_to "Pending Orders" %> </p>
+        <% end %> 
+
+        <p> <%= link_to "Your orders" %> </p>
+        <p> <%= link_to "cart"%> </p>
+
+
+        <% if @current_user.role == 'owner'%>
+          <p> <%= link_to "Sales report" %> </p>
+        <% end %>
+      </div>
     <% end %> 
-      
+
     <% if flash[:error]%>
       <p class="User-error Login-page">
         <%=flash[:error] %>
       </p>
     <% end %>
 
-    <%= yield %>
+    <article class="main">
+      <%= yield %>
+    </article>
+
   </body>
 </html>

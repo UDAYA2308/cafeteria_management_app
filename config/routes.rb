@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/", to: "sessions#new"
   get "/signin", to: "sessions#new", as: :new_sessions
   post "/signin", to: "sessions#create", as: :sessions
+  get "/home", to: "home#index"
   delete "/signout", to: "sessions#destroy", as: :destroy_session
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
