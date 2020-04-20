@@ -28,7 +28,10 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    current_menu_id = Menu.find_by(active: true).id
+    if Menu.find_by(active: true)
+      current_menu_id = Menu.find_by(active: true).id
+    end
+    @quant = ["a", "b"]
     @menu_items = MenuItem.joins(:menu).where(menu_id: current_menu_id)
   end
 
