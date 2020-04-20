@@ -1,0 +1,18 @@
+.Order-quantity {
+    padding: 5px;
+}
+
+.Form-order {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Order-submit {
+    margin-top: 40px;
+    font-size: 20px;
+    padding: 10px;
+    background-color: #48BB78;
+    border: 0px;
+    color: white;
+    border-radius: 4px;
+}

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :order_items
   resources :orders
   get "/", to: "sessions#new"
+  get "/yourorder", to: "orders#your_orders"
+  post "viewcart", to: "orders#view"
   get "/signin", to: "sessions#new", as: :new_sessions
   post "/signin", to: "sessions#create", as: :sessions
   get "/home", to: "home#index"
