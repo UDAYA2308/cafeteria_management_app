@@ -4,7 +4,7 @@
 
 .Form-order {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 .Order-submit {
@@ -15,4 +15,21 @@
     border: 0px;
     color: white;
     border-radius: 4px;
+}
+
+.Order-view {
+    max-width: 350px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    font-size: 17px;
+}
+
+.Order-section {
+    align-items: center;
+    display: flex;
+}
+
+.Order-status {
+    font-size: 20px;
+    margin-left: 10px;
 }

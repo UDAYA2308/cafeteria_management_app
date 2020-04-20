@@ -27,6 +27,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+    @status = @order.status == "preparing"
   end
 
   def view
@@ -63,15 +64,15 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
   def update
-    respond_to do |format|
-      if @order.update(order_params)
-        format.html { redirect_to @order, notice: "Order was successfully updated." }
-        format.json { render :show, status: :ok, location: @order }
-      else
-        format.html { render :edit }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
-      end
+    @order.update(status: params[:status])
+    @order.save
+
+    if params[:status] == "delivered"
+      @order.update(delivered_at: Time.now.utc)
+      @order.save
     end
+
+    redirect_to orders_path(notice: "Order Status Updated Successfully ")
   end
 
   # DELETE /orders/1
