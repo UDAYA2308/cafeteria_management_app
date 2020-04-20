@@ -10,11 +10,15 @@
 .Form-input {
     font-size: 20px;
     padding: 8px;
+    border: 1px solid rgb(108, 240, 147);
+    border-style: solid;
+    border-radius: 10px;
 }
 
 .FormInput-label {
     color: #555555;
-    margin-bottom: 8px;
+    font-size: 17px;
+    margin-bottom: 20px;
 }
 
 .Form-submit {

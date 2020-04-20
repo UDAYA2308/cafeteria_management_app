@@ -25,6 +25,7 @@
     padding: 10px;
     margin-bottom: 10px;
     display: flex;
+    background-color: white;
     border-radius: 4px;
     justify-content: space-between;
 }
@@ -65,7 +66,6 @@
 .main {
     margin-left: 135px;
     font-family: OpenSans-Semibold;
-    background-color: white;
     padding: 14px;
 }
 
