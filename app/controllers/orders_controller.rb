@@ -19,6 +19,13 @@ class OrdersController < ApplicationController
     render "index"
   end
 
+  def report
+    @orders = Order.joins(:user).order(:date)
+    @totals = OrderItem.group(:order_id).sum(:total)
+    @count = Order.count
+    @sum = OrderItem.sum(:total)
+  end
+
   # GET /orders/new
   def new
     current_menu_id = Menu.find_by(active: true).id

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :orders
   get "/", to: "sessions#new"
   get "/yourorder", to: "orders#your_orders"
+  get "/sales_report", to: "orders#report"
   post "viewcart", to: "orders#view"
   get "/signin", to: "sessions#new", as: :new_sessions
   post "/signin", to: "sessions#create", as: :sessions

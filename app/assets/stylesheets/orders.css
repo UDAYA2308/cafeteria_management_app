@@ -33,3 +33,12 @@
     font-size: 20px;
     margin-left: 10px;
 }
+
+.Report-section {
+    padding: 10px;
+    justify-content: center;
+}
+
+.Report-label {
+    font-size: 24px;
+}
