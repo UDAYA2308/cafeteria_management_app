@@ -14,13 +14,13 @@ class OrdersController < ApplicationController
   end
 
   def your_orders
-    @orders = Order.where(user_id: @current_user.id)
+    @orders = Order.where(user_id: @current_user.id).order(:date)
     @your_order = false
     render "index"
   end
 
   def report
-    @orders = Order.joins(:user).order(:date)
+    @orders = Order.order(:date)
     @totals = OrderItem.group(:order_id).sum(:total)
     @count = Order.count
     @sum = OrderItem.sum(:total)
@@ -31,8 +31,7 @@ class OrdersController < ApplicationController
     if Menu.find_by(active: true)
       current_menu_id = Menu.find_by(active: true).id
     end
-    @quant = ["a", "b"]
-    @menu_items = MenuItem.joins(:menu).where(menu_id: current_menu_id)
+    @menu_items = MenuItem.where(" menu_id = ?  and stock > 0", current_menu_id)
   end
 
   # GET /orders/1/edit
@@ -47,7 +46,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    items = Cart.joins(:menu_item).where(user_id: @current_user.id)
+    items = Cart.where(user_id: @current_user.id)
     if items.count != 0
       new_order = Order.create!(
         user_id: @current_user.id,
@@ -58,6 +57,10 @@ class OrdersController < ApplicationController
     end
 
     items.each do |item|
+      menu_item = MenuItem.find(item.menu_item_id)
+      menu_item.stock = menu_item.stock - item.quantity
+      menu_item.save
+
       OrderItem.create!(
         order_id: new_order.id,
         menu_item_id: item.menu_item.id,
@@ -68,7 +71,7 @@ class OrdersController < ApplicationController
       )
     end
     items.destroy_all
-    redirect_to home_path
+    redirect_to yourorder_path
   end
 
   # PATCH/PUT /orders/1

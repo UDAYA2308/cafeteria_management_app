@@ -21,7 +21,7 @@
 
   <div class="From-section">
     <%= form.label :quantity ,class:"FormInput-label" %>
-    <%= form.number_field :quantity , class:"Form-input" %>
+    <%= form.number_field :quantity , class:"Form-input", min: 0 , max: cart.menu_item.stock %>
   </div>
 
   <div class="Cart-edit">

@@ -4,7 +4,7 @@ class CartsController < ApplicationController
   # GET /carts
   # GET /carts.json
   def index
-    @cart = Cart.joins(:menu_item).where(user_id: @current_user.id)
+    @cart = Cart.where(user_id: @current_user.id)
   end
 
   # GET /carts/1
@@ -14,7 +14,7 @@ class CartsController < ApplicationController
 
   # GET /carts/new
   def new
-    @cart = Cart.joins(:menu_item).where(user_id: @current_user.id)
+    @cart = Cart.where(user_id: @current_user.id)
   end
 
   # GET /carts/1/edit
@@ -54,6 +54,9 @@ class CartsController < ApplicationController
     respond_to do |format|
       if @cart
         @cart.update(cart_params)
+        if @cart.quantity == 0
+          @cart.destroy
+        end
         format.html { redirect_to carts_path, notice: "Cart was successfully updated." }
         format.json { render :index, status: :ok, location: @cart }
       else
