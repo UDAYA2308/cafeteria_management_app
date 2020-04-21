@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get "/yourorder", to: "orders#your_orders"
   get "/sales_report", to: "orders#report"
   post "viewcart", to: "orders#view"
+  get "/clerks", to: "clerks#index"
+  get "/new_clerk", to: "clerks#new"
   get "/signin", to: "sessions#new", as: :new_sessions
   post "/signin", to: "sessions#create", as: :sessions
   get "/home", to: "home#index"
