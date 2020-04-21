@@ -1,28 +1,27 @@
-<p id="notice"><%= notice %></p>
+<section class="OrderItem">
+  <p id="notice"><%= notice %></p>
 
-<h1>Order Items</h1>
+  <h1>Order Items</h1>
 
-<table class="Table">
-  <thead>
-    <tr>
-      <th>Menu item name</th>
-      <th>Menu item price</th>
-      <th>Quantity</th>
-      <th>Total</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @order_items.each do |order_item| %>
+  <table class="Table">
+    <thead>
       <tr>
-        <td><%= order_item.menu_item_name %></td>
-        <td><%= order_item.menu_item_price %></td>
-        <td><%= order_item.quantity %></td>
-        <td><%= order_item.total %></td>
+        <th>Menu item name</th>
+        <th>Menu item price</th>
+        <th>Quantity</th>
+        <th>Total</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
+    <tbody>
+      <% @order_items.each do |order_item| %>
+        <tr>
+          <td><%= order_item.menu_item_name %></td>
+          <td><%= order_item.menu_item_price %></td>
+          <td><%= order_item.quantity %></td>
+          <td><%= order_item.total %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
