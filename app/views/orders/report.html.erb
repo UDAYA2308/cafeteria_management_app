@@ -1,4 +1,4 @@
-<p id="notice"><%= params[:notice] %></p>
+<p id="notice"> <%= params[:notice] %> </p>
 
 <h1>Orders</h1>
 
@@ -16,13 +16,13 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= order.user.first_name %></td>
-        <td><%= order.date %></td>
-        <td><%= order.delivered_at %></td>
-        <td><%= @totals[order.id] %></td>
-        <td><%= link_to 'Show', order_items_path(order_id: order.id) %></td>
+        <td> <%= order.user.first_name %> </td>
+        <td> <%= order.date %> </td>
+        <td> <%= order.delivered_at %> </td>
+        <td> <%= @totals[order.id] %> </td>
+        <td> <%= link_to 'Show', order_items_path(order_id: order.id) %> </td>
         <% if (not(@current_user.role == "customer")) and @your_order %>
-          <td><%= link_to 'Edit', edit_order_path(order) %></td>
+            <td> <%= link_to 'Edit', edit_order_path(order) %> </td>
         <% end %>
       </tr>
     <% end %>

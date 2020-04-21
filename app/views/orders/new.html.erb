@@ -1,35 +1,36 @@
+<section class="Order">
+    <h1>New Order</h1>
 
-<h1>New Order</h1>
+    <table class="Table">
+        <thead>
+            <th> Menu Item </th>
+            <th> Price </th>
+            <th> Quantity </th>
+        </thead>
 
-<table class="Table">
-    <thead>
-        <th> Menu Item </th>
-        <th> Price </th>
-        <th> Quantity </th>
-    </thead>
+        <tbody>
+            <% @menu_items.each do |item| %>
+                <tr>
+                    <%= form_with url: carts_path do |form| %>
+                        <td> <%= item.menu_item_name %> </td>
+                        <td> <%= item.menu_item_price %> </td>
+                        <%= hidden_field_tag 'menu_item_id',item.id %>
+                        <%= hidden_field_tag 'menu_id',item.menu_id %>
+                        <%= hidden_field_tag 'user_id',@current_user.id %>
+                        <td> <%= number_field_tag 'quantity',0 ,
+                                min: 0 , class: "Order-quantity",
+                                :onclick => "submit()" %> </td>
+                    <% end %>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>    
 
-    <tbody>
-        <% @menu_items.each do |item| %>
-            <tr>
-                <%= form_with url: carts_path do |form| %>
-                    <td> <%= item.menu_item_name %> </td>
-                    <td> <%= item.menu_item_price %> </td>
-                    <%= hidden_field_tag 'menu_item_id',item.id%>
-                    <%= hidden_field_tag 'menu_id',item.menu_id%>
-                    <%= hidden_field_tag 'user_id', @current_user.id %>
-                    <td> <%= number_field_tag 'quantity',0 ,
-                             min: 0 , class: "Order-quantity",
-                             :onclick => "submit()" %> </td>
-                <% end %>
-            </tr>
+    <div>
+        <%= form_with url: viewcart_path do |form| %>
+            <div class="Form-order">
+                <%= submit_tag "View cart", class: "Order-submit" %>
+            </div>
         <% end %>
-    </tbody>
-</table>    
-
-<div>
-    <%= form_with url: viewcart_path do |form| %>
-        <div class="Form-order">
-            <%= submit_tag "View cart", class: "Order-submit"%>
-        </div>
-    <% end %>
-</div>
+    </div>
+</section>

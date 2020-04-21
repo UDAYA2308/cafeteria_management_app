@@ -1,5 +1,5 @@
 <%= form_with(model: order, local: true) do |form| %>
-  <section class="Form-input">
+  <section class="Form-section">
       <h4> Status <h4> 
           <div class="Order-section">
               <%= radio_button_tag "status", "confirm" , !(@status) %>
@@ -18,6 +18,5 @@
           <div class="Order-section">
               <%= submit_tag "Update Order", class: "Order-submit"%>
           </div>
-    
   </section>
 <% end %>
