@@ -1,22 +1,22 @@
 <section class="MenuItem">
-  <p id="notice"><%= params[:notice] %></p>
+  <h5 id="notice"><%= params[:notice] %></h5>
 
-  <p>
+  <p class="Menu-label">
     <strong>Menu:</strong>
-    <%= @menu_item.menu_id %>
+    <%= @menu_item.menu.menu_name%>
   </p>
 
-  <p>
+  <p class="Menu-label">
     <strong>Menu item name:</strong>
     <%= @menu_item.menu_item_name %>
   </p>
 
-  <p>
+  <p class="Menu-label">
     <strong>Menu item price:</strong>
     <%= @menu_item.menu_item_price %>
   </p>
 
-  <p>
+  <p class="Menu-label">
     <strong>Stock:</strong>
     <%= @menu_item.stock %>
   </p>

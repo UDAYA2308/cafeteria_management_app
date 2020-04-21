@@ -75,7 +75,7 @@ class MenuItemsController < ApplicationController
       format.html {
         redirect_to action: "index",
                     current_menu_id: params[:current_menu_id],
-                    notice: "Menu item was successfully destroyed."
+                    notice: "Menu item was successfully Removed."
       }
       format.json { head :no_content }
     end
