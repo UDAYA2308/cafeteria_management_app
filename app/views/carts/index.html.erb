@@ -1,36 +1,38 @@
-<p id="notice"><%= notice %></p>
+<section class="Cart">
+  <h4 id="notice"><%= notice %></h4>
 
-<h1>Carts</h1>
+  <h1>Carts</h1>
 
-<table class="Table">
-  <thead>
-    <tr>
-      <th>Menu Item</th>
-      <th>price</th>
-      <th>Quantity</th>
-      <th colspan=2>Options</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cart.each do |cart| %>
+  <table class="Table">
+    <thead>
       <tr>
-        <td> <%= cart.menu_item.menu_item_name %> </td>
-        <td> <%= cart.menu_item.menu_item_price %> </td>
-        <td> <%= cart.quantity %> </td>
-        <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
-        <td><%= link_to 'Remove', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Menu Item</th>
+        <th>price</th>
+        <th>Quantity</th>
+        <th colspan=2>Options</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @cart.each do |cart| %>
+        <tr>
+          <td> <%= cart.menu_item.menu_item_name %> </td>
+          <td> <%= cart.menu_item.menu_item_price %> </td>
+          <td> <%= cart.quantity %> </td>
+          <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
+          <td><%= link_to 'Remove', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<div>
-    <%= form_with url: orders_path do |form| %>
-        <div class="Form-order">
-            <%= submit_tag "Place Order", class: "Order-submit" %>
-        </div>
-    <% end %>
-</div>
+  <br>
+
+  <div>
+      <%= form_with url: orders_path do |form| %>
+          <div class="Form-order">
+              <%= submit_tag "Place Order", class: "Order-submit" %>
+          </div>
+      <% end %>
+  </div>
+</section>
