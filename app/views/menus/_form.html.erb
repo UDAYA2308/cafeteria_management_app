@@ -1,11 +1,9 @@
 <%= form_with(model: menu, local: true) do |form| %>
   <% if menu.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
-
+    <div class="Menu-error">
       <ul>
         <% menu.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li> <strong> <%= message %> </strong> </li>
         <% end %>
       </ul>
     </div>
@@ -16,12 +14,12 @@
     <%= form.text_field :menu_name , class: "Form-input"%>
   </div>
 
-  <div class="Form-section">
-    <%= form.label :active ,class:"FormInput-label" %>
+  <div class="Menu-active">
+    <p class="Menu-label"> <%= form.label :active %> <p>
     <%= form.check_box :active , class: "Form-input" %>
   </div>
 
   <div class="Form-section">
-    <%= form.submit %>
+    <%= form.submit nil, class: "Form-submit" %>
   </div>
 <% end %>

@@ -3,6 +3,7 @@
     border-collapse: collapse;
     width: 100%;
     text-align: center;
+    margin-bottom: 24px;
 }
 
 .Table td,
@@ -31,6 +32,32 @@
 .Menu-view {
     max-width: 350px;
     margin: 0 auto;
-    margin-bottom: 20px;
+    margin-top: 30px;
+    background-color: white;
+    padding: 24px;
+    border-radius: 10px;
     font-size: 17px;
+}
+
+.Menu {
+    background-color: white;
+    padding: 20px;
+}
+
+.Menu-active {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.Menu-label {
+    margin-right: 24px;
+    color: #555555;
+    font-size: 17px;
+    margin-bottom: 24px;
+}
+
+.Menu-error {
+    color: red;
+    font-style: italic;
 }
