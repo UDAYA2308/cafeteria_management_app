@@ -1,7 +1,9 @@
 <section class="Menu">
   <h4 id="notice"><%= notice %></h4>
   
-  <h1>Menus</h1>
+  <h1 class="Menu-title">Menus</h1>
+
+  <p class="Menu-new"> <%= link_to 'New Menu', new_menu_path %> </p>
 
   <table class="Table">
     <thead>
@@ -26,7 +28,5 @@
   </table>
 
   <br>
-
-  <%= link_to 'New Menu', new_menu_path %>
 
 </section>
