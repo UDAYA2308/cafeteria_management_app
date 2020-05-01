@@ -36,6 +36,8 @@
 
 .UserHeader {
     box-shadow: 0 8px 6px -6px rgb(133, 126, 126);
+    z-index: 1;
+    position: relative;
 }
 
 .UserHeader a:hover {
