@@ -15,17 +15,19 @@
     margin: 0px;
 }
 
-.Home-title {
-    font-size: 20px;
-    color: #4CAF50;
-    background-color: white;
-    margin-top: 100px;
-    padding: 20px;
-    text-align: center;
+.Home-page {
+    padding-top: 40px;
+    max-width: 800px;
+    color: white;
+    font-size: 40px;
+    padding-left: 200px;
+    font-weight: bold;
 }
 
 .Home {
-    background-color: white;
+    margin: 0;
+    background-image: url('/assets/home.jpg');
+    height: 520px;
 }
 
 .Home-authenticate {
@@ -34,17 +36,15 @@
 }
 
 .UserHeader {
-    font-size: 20px;
-    padding: 10px;
-    margin: 0px;
-    margin-bottom: 10px;
-    display: flex;
-    color: white;
-    font-style: oblique;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-    background-image: linear-gradient(to right, #1f8cbe, rgb(142, 217, 223));
-    justify-content: space-between;
+    box-shadow: 0 8px 6px -6px rgb(133, 126, 126);
+}
+
+.UserHeader a:hover {
+    background-color: white;
+    color: #fc8019;
+    font-size: 24px;
+    outline: 0;
+    border: none;
 }
 
 .User-error {
@@ -56,20 +56,62 @@
 
 .topnav {
     overflow: hidden;
-    background-color: #333;
+    background-color: white;
+    box-shadow: whitesmoke;
 }
 
 .topnav a {
-    float: left;
-    color: #f2f2f2 !important;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-weight: bold;
     font-size: 17px;
+    float: left;
 }
 
-.topnav a:hover {
-    background-color: #4CAF50;
-    color: white;
+.dropdown {
+    margin-right: 120px;
+    margin-top: 12px;
+    display: inline-block;
+    float: inline-end;
+}
+
+.dropbt {
+    border: none;
+    background-color: white;
+    color: #453C52;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.dropdown:hover .dropbt {
+    color: #fc8019;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.Order-link {
+    font-size: 24px;
+    color: white !important;
+    margin-left: 220px;
+    outline: 0;
+    border: none;
+    text-decoration: none;
+}
+
+.Home-page a:hover {
+    background-color: transparent;
+    color: #fc8019 !important;
+    font-size: 32px;
 }
