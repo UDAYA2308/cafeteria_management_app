@@ -25,9 +25,8 @@
 }
 
 .Home {
-    margin: 0;
     background-image: url('/assets/home.jpg');
-    height: 520px;
+    height: 677px;
 }
 
 .Home-authenticate {
@@ -110,8 +109,15 @@
     text-decoration: none;
 }
 
+.Home-page a {
+    position: absolute;
+    top: 350px;
+    font-size: 32px;
+    left: 180px;
+}
+
 .Home-page a:hover {
     background-color: transparent;
     color: #fc8019 !important;
-    font-size: 32px;
+    font-size: 40px;
 }
