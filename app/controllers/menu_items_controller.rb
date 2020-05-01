@@ -35,7 +35,7 @@ class MenuItemsController < ApplicationController
       menu_id: params[:menu_id],
       menu_item_name: params[:menu_item_name],
       menu_item_price: params[:menu_item_price],
-      stock: params[:stock],
+      image_url: params[:image_url],
     )
     if menu_item.save
       redirect_to menu_items_path(
@@ -90,6 +90,6 @@ class MenuItemsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def menu_item_params
-    params.require(:menu_item).permit(:menu_id, :menu_item_name, :menu_item_price, :stock)
+    params.require(:menu_item).permit(:menu_id, :menu_item_name, :menu_item_price, :image_url)
   end
 end

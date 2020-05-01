@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
     if Menu.find_by(active: true)
       current_menu_id = Menu.find_by(active: true).id
     end
-    @menu_items = MenuItem.where(" menu_id = ?  and stock > 0", current_menu_id)
+    @menu_items = MenuItem.where(" menu_id = ? ", current_menu_id)
   end
 
   # GET /orders/1/edit
@@ -57,10 +57,6 @@ class OrdersController < ApplicationController
     end
 
     items.each do |item|
-      menu_item = MenuItem.find(item.menu_item_id)
-      menu_item.stock = menu_item.stock - item.quantity
-      menu_item.save
-
       OrderItem.create!(
         order_id: new_order.id,
         menu_item_id: item.menu_item.id,
