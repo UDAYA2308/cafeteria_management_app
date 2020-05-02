@@ -4,8 +4,8 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.where(delivered_at: nil)
-    @your_order = true
+    @orders = Order.pending_order.order(date: :desc)
+    @your_order = false
   end
 
   # GET /orders/1
@@ -14,13 +14,13 @@ class OrdersController < ApplicationController
   end
 
   def your_orders
-    @orders = Order.where(user_id: @current_user.id).order(:date)
-    @your_order = false
+    @orders = @current_user.orders.order(date: :desc)
+    @your_order = true
     render "index"
   end
 
   def report
-    @orders = Order.order(:date)
+    @orders = Order.order(date: :desc)
     @totals = OrderItem.group(:order_id).sum(:total)
     @count = Order.count
     @sum = OrderItem.sum(:total)
@@ -28,10 +28,10 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    if Menu.find_by(active: true)
-      current_menu_id = Menu.find_by(active: true).id
+    if Menu.active
+      current_menu_id = Menu.active
     end
-    @menu_items = MenuItem.where(" menu_id = ? ", current_menu_id)
+    @menu_items = MenuItem.current_menu(current_menu_id)
   end
 
   # GET /orders/1/edit
@@ -46,7 +46,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    items = Cart.where(user_id: @current_user.id)
+    items = @current_user.carts
     if items.count != 0
       new_order = Order.create!(
         user_id: @current_user.id,

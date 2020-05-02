@@ -1,4 +1,36 @@
 .OrderItem {
     background-color: white;
     padding: 20px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.OrderItem-total {
+    text-align: right;
+    padding: 20px;
+    margin-top: 40px;
+    margin-right: 40px;
+}
+
+.OrderItem-title {
+    text-align: center;
+}
+
+.OrderItem a {
+    outline: 0;
+    text-decoration: none;
+    border: none;
+    font-size: 17px;
+}
+
+.Back-link {
+    padding: 10px;
+    text-align: end;
+    margin-right: 50px;
+}
+
+.OrderItem a:hover {
+    background-color: transparent;
+    color: #fc8019 !important;
+    font-size: 20px;
+    font-weight: bold;
 }

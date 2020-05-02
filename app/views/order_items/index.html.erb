@@ -1,8 +1,9 @@
 <section class="OrderItem">
   <p id="notice"><%= notice %></p>
 
-  <h1>Order Items</h1>
+  <h1 class="OrderItem-title">Order Items</h1>
 
+  <p class="Back-link"> <%= link_to 'Back', :back %> </p>
   <table class="Table">
     <thead>
       <tr>
@@ -24,4 +25,7 @@
       <% end %>
     </tbody>
   </table>
+
+  <h2 class="OrderItem-total"> Total Amount = <%= @amount %> </h2>
+
 </section>

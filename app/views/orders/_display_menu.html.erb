@@ -1,0 +1,28 @@
+<section class="MenuItem-display"> 
+    <% @menu_items.each do |menu_item| %>
+        <div class="MenuItem-view">
+            <% default_image_url = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT1rpP0XAZe3DwshkIQVjMjYqo1-XLl_dYfZjIA6jl_YCfmG2lI&usqp=CAU" %>
+            <% image_url = menu_item.image_url.presence || default_image_url %>
+            <img src='<%= image_url %>' class="MenuItem-image" alt='Image of <%= menu_item.menu_item_name %>' />
+            <p class="MenuItem-name"> <%= menu_item.menu_item_name %> </p>
+            <div class="MenuItem-display-end">
+                <p class="MenuItem-price">  ₹ <%= menu_item.menu_item_price %> </p>
+                
+                <div class="Order-quantity"> 
+                    <%= form_with url: carts_path do |form| %>
+                        <%= hidden_field_tag 'menu_item_id',menu_item.id %>
+                        <%= hidden_field_tag 'menu_id',menu_item.menu_id %>
+                        <%= hidden_field_tag 'user_id',@current_user.id %>
+                        <%= number_field_tag 'quantity',0 ,
+                            min: 0 , class: "Order-quantity",
+                            :onclick => "submit()" 
+                        %>
+                    <% end %>
+                </div>
+
+            </div>
+        </div>
+       
+        <hr> 
+    <% end %>
+</section>

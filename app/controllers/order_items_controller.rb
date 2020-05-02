@@ -4,7 +4,8 @@ class OrderItemsController < ApplicationController
   # GET /order_items
   # GET /order_items.json
   def index
-    @order_items = OrderItem.where(order_id: params[:order_id])
+    @order_items = OrderItem.get_items(params[:order_id])
+    @amount = OrderItem.get_total(params[:order_id])
   end
 
   # GET /order_items/1

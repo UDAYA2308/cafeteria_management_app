@@ -1,12 +1,20 @@
  <section class="Order">
     <h4 id="notice"> <%= params[:notice] %> </h4>
+    <% order_title = "Pending Orders" %>
+    <% order_title = "Your Orders" if @your_order %>
+    <h1 class="Order-title"> <%= order_title %> </h1>
 
-    <h1> Orders </h1>
+    <p class="OrderNew"> <%= link_to 'New Order', new_order_path %> <p>
 
     <table class="Table">
       <thead>
         <tr>
-          <th>User</th>
+          <% if not @your_order%>
+            <th>Order Id</th>
+          <% end %>
+          <% if not @your_order%>
+            <th>User</th> 
+          <% end %>
           <th>Date</th>
           <th>Delivered at</th>
           <th>Status</th>
@@ -17,12 +25,17 @@
       <tbody>
         <% @orders.each do |order| %>
           <tr>
-            <td> <%= order.user.first_name %> </td>
+            <% if not @your_order%>
+              <td> <%= order.id %> </td>
+            <% end %>
+            <% if not @your_order%>
+              <td> <%= order.user.first_name %> </td>
+            <% end %>
             <td> <%= order.date %> </td>
             <td> <%= order.delivered_at %> </td>
             <td> <%= order.status %> </td>
             <td> <%= link_to 'Show', order_items_path(order_id: order.id) %> </td>
-            <% if (not(@current_user.role == "customer")) and @your_order %>
+            <% if ( not (@current_user.is_customer(@current_user.id))) and not @your_order %>
               <td> <%= link_to 'Edit', edit_order_path(order) %> </td>
             <% end %>
           </tr>
@@ -31,6 +44,5 @@
     </table>
 
     <br>
-
-    <%= link_to 'New Order', new_order_path %>
+  
 </section>

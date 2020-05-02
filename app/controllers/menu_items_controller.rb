@@ -5,10 +5,7 @@ class MenuItemsController < ApplicationController
   # GET /menu_items.json
   def index
     @menus = Menu.all
-    if Menu.active()
-      @current_menu_id = Menu.active()
-    end
-
+    @current_menu_id = Menu.active()
     @current_menu_id = params[:current_menu_id] if params[:current_menu_id]
     @menu_items = MenuItem.current_menu(@current_menu_id)
   end
