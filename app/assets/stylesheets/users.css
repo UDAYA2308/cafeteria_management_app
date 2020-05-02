@@ -37,4 +37,29 @@
 .Clerk {
     background-color: white;
     padding: 20px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.Clerk a {
+    outline: 0;
+    text-decoration: none;
+    border: none;
+    font-size: 17px;
+}
+
+.Clerk a:hover {
+    background-color: transparent;
+    color: #fc8019 !important;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.Clerk-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.ClerkNew {
+    padding: 10px;
+    font-weight: bold;
 }

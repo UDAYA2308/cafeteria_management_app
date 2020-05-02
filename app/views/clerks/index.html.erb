@@ -1,7 +1,8 @@
 <section class="Clerk">
-    <h4 id="notice"><%= params[:notice] %></h4>
+    <h3 id="notice"> <%= params[:notice] %> </h3>
 
-    <h1>Clerks</h1>
+    <h1 class="Clerk-title">Clerks</h1>
+    <p class="ClerkNew"> <%= link_to 'Add clerk', new_clerk_path %> </p>
 
     <table class="Table">
         <thead>
@@ -27,5 +28,4 @@
 
     <br>
 
-    <%= link_to 'Add clerk', new_clerk_path %>
 </section>

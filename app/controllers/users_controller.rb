@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       role: params[:role],
     )
     if user_new.save
-      if user_new.role != "customer"
+      if not user_new.is_customer(user_new.id)
         redirect_to clerks_path
       else
         session[:current_user_id] = user_new.id
