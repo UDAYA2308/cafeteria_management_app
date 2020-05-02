@@ -10,4 +10,18 @@
 .Cart {
     background-color: white;
     padding: 20px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.Cart a {
+    outline: 0;
+    text-decoration: none;
+    border: none;
+}
+
+.Cart a:hover {
+    background-color: transparent;
+    color: #fc8019 !important;
+    font-size: 20px;
+    font-weight: bold;
 }

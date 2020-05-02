@@ -47,7 +47,7 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     items = @current_user.carts
-    if items.count != 0
+    if items.count > 0
       new_order = Order.create!(
         user_id: @current_user.id,
         date: Time.now.getutc,
@@ -66,8 +66,13 @@ class OrdersController < ApplicationController
         total: item.quantity * item.menu_item.menu_item_price,
       )
     end
-    items.destroy_all
-    redirect_to yourorder_path
+    if items.count > 0
+      items.destroy_all
+      redirect_to yourorder_path(notice: "Order Successfully placed")
+    else
+      flash[:error] = "Your Cart is empyt !!"
+      redirect_to carts_path
+    end
   end
 
   # PATCH/PUT /orders/1
