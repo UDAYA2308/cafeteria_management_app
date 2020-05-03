@@ -47,12 +47,15 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     items = @current_user.carts
+    type = "walk in"
+    type = "Online" if @current_user.is_customer(@current_user.id)
     if items.count > 0
       new_order = Order.create!(
         user_id: @current_user.id,
         date: Time.now.getutc,
         delivered_at: nil,
         status: "confirm",
+        order_type: type,
       )
     end
 

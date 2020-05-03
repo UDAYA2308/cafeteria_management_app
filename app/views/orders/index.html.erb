@@ -9,14 +9,15 @@
     <table class="Table">
       <thead>
         <tr>
-          <% if not @your_order%>
+          <% if not @your_order %>
             <th>Order Id</th>
-          <% end %>
-          <% if not @your_order%>
-            <th>User</th> 
+            <th>User</th>
+            <th>Type</th> 
           <% end %>
           <th>Date</th>
-          <th>Delivered at</th>
+          <% if @your_order %>
+            <th>Delivered at</th> 
+          <% end %>
           <th>Status</th>
           <th colspan="3">Options</th>
         </tr>
@@ -27,18 +28,23 @@
           <tr>
             <% if not @your_order%>
               <td> <%= order.id %> </td>
-            <% end %>
-            <% if not @your_order%>
               <td> <%= order.user.first_name %> </td>
+              <td> <%= order.order_type %> </td> 
             <% end %>
+
             <td> <%= order.date %> </td>
-            <td> <%= order.delivered_at %> </td>
+            <% if @your_order %>
+              <td> <%= order.delivered_at %> </td> 
+            <% end %>
+
             <td> <%= order.status %> </td>
             <td> <%= link_to 'Show', order_items_path(order_id: order.id) %> </td>
             <% if ( not (@current_user.is_customer(@current_user.id))) and not @your_order %>
               <td> <%= link_to 'Edit', edit_order_path(order) %> </td>
             <% end %>
+
           </tr>
+
         <% end %>
       </tbody>
     </table>
