@@ -1,8 +1,23 @@
 <section class="Order">
   <p id="notice"> <%= params[:notice] %> </p>
 
-  <h1>Orders</h1>
+  <h1 class="Order-title">Sales report</h1>
 
+  <%= form_with url: sales_report_path, method: "GET",local: true do |form| %>
+    <section class="Search">  
+      <p class="Search-label"> From </p>
+      <%= date_field_tag 'from_date', @from_date, class: "Search-date" %>
+      <p class="Search-label"> To </p>
+      <%= date_field_tag 'to_date', @to_date, class: "Search-date" %>
+      <%= text_field_tag 'user_id', nil, value: params[:user_id],
+                                  placeholder: "UserId (optional)",
+                                  class: "Search-label"
+      %>
+      
+      <%= submit_tag "Get", class: "Search-submit" %>
+    </section>
+  <% end %>
+  
   <table class="Table">
     <thead>
       <tr>
@@ -22,9 +37,6 @@
           <td> <%= order.delivered_at %> </td>
           <td> <%= @totals[order.id] %> </td>
           <td> <%= link_to 'Show', order_items_path(order_id: order.id) %> </td>
-          <% if (not(@current_user.role == "customer")) and @your_order %>
-              <td> <%= link_to 'Edit', edit_order_path(order) %> </td>
-          <% end %>
         </tr>
       <% end %>
     </tbody>

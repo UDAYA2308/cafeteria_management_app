@@ -20,10 +20,30 @@ class OrdersController < ApplicationController
   end
 
   def report
-    @orders = Order.order(date: :desc)
-    @totals = OrderItem.group(:order_id).sum(:total)
-    @count = Order.count
-    @sum = OrderItem.sum(:total)
+    if (params[:to_date])
+      @orders = []
+      if (params[:to_date] == "" or params[:from_date] == "")
+        flash[:error] = "Date can't be empty"
+        redirect_to sales_report_path
+      elsif (params[:from_date] > params[:to_date])
+        flash[:error] = "Invalid Date range"
+        redirect_to sales_report_path
+      else
+        @from_date = params[:from_date].split("-").join("/")
+        @from_date = Date.strptime(@from_date, "%Y/%m/%d")
+        @to_date = params[:to_date].split("-").join("/")
+        @to_date = Date.strptime(@to_date, "%Y/%m/%d")
+        @orders = Order.get_report(params[:from_date], params[:to_date], params[:user_id])
+        @totals = OrderItem.group(:order_id).sum(:total)
+        @count = @orders.count
+        @sum = @orders.map { |item| item.order_items.sum(:total) }.sum
+      end
+    else
+      @orders = Order.all
+      @totals = OrderItem.group(:order_id).sum(:total)
+      @count = Order.count
+      @sum = OrderItem.sum(:total)
+    end
   end
 
   # GET /orders/new
