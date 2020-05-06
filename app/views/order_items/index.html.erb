@@ -1,14 +1,19 @@
 <section class="OrderItem">
   <p id="notice"><%= notice %></p>
 
-  <h1 class="OrderItem-title">Order Items</h1>
-
+  <div class="Invoice-details">
+    <h1>Invoice</h1>
+    <h3>Date : <%= @user_data['date'] %> </h3>
+    <h3>Order Id : <%= params[:order_id] %> </h3>
+    <h3>Name : <%= @user_data['name'] %> </h3>
+    <h3>Email : <%= @user_data['email'] %> </h3>
+  </div>
   <p class="Back-link"> <%= link_to 'Back', :back %> </p>
   <table class="Table">
     <thead>
       <tr>
-        <th>Menu item name</th>
-        <th>Menu item price</th>
+        <th>Description</th>
+        <th>Unit price</th>
         <th>Quantity</th>
         <th>Total</th>
       </tr>
