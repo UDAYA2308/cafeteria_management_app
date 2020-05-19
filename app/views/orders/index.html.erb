@@ -4,7 +4,7 @@
     <% order_title = "Your Orders" if @your_order %>
     <h1 class="Order-title"> <%= order_title %> </h1>
 
-    <p class="OrderNew"> <%= link_to 'New Order', new_order_path %> <p>
+    <p class="OrderNew"> <%= link_to "New Order", new_order_path %> <p>
 
     <table class="Table">
       <thead>
@@ -26,7 +26,7 @@
       <tbody>
         <% @orders.each do |order| %>
           <tr>
-            <% if not @your_order%>
+            <% if not @your_order %>
               <td> <%= order.id %> </td>
               <td> <%= order.user.first_name %> </td>
               <td> <%= order.order_type %> </td> 
@@ -38,9 +38,9 @@
             <% end %>
 
             <td> <%= order.status %> </td>
-            <td> <%= link_to 'Show', order_items_path(order_id: order.id) %> </td>
-            <% if ( not (@current_user.is_customer(@current_user.id))) and not @your_order %>
-              <td> <%= link_to 'Edit', edit_order_path(order) %> </td>
+            <td> <%= link_to "Show", order_items_path(order_id: order.id) %> </td>
+            <% if (not(@current_user.is_customer(@current_user.id))) and not @your_order %>
+              <td> <%= link_to "Edit", edit_order_path(order) %> </td>
             <% end %>
 
           </tr>

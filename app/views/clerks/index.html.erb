@@ -2,7 +2,7 @@
     <h3 id="notice"> <%= params[:notice] %> </h3>
 
     <h1 class="Clerk-title">Clerks</h1>
-    <p class="ClerkNew"> <%= link_to 'Add clerk', new_clerk_path %> </p>
+    <p class="ClerkNew"> <%= link_to "Add clerk", new_clerk_path %> </p>
 
     <table class="Table">
         <thead>
@@ -20,7 +20,7 @@
                     <td> <%= user.first_name %> </td>
                     <td> <%= user.last_name %> </td>
                     <td> <%= user.email %> </td>
-                    <td> <%= link_to 'Remove', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <td> <%= link_to "Remove", user, method: :delete, data: { confirm: "Are you sure?" } %> </td>
                 </tr>
             <% end %>
         </tbody>

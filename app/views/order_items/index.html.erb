@@ -3,12 +3,12 @@
 
   <div class="Invoice-details">
     <h1>Invoice</h1>
-    <h3>Date : <%= @user_data['date'] %> </h3>
+    <h3>Date : <%= @user_data["date"] %> </h3>
     <h3>Order Id : <%= params[:order_id] %> </h3>
-    <h3>Name : <%= @user_data['name'] %> </h3>
-    <h3>Email : <%= @user_data['email'] %> </h3>
+    <h3>Name : <%= @user_data["name"] %> </h3>
+    <h3>Email : <%= @user_data["email"] %> </h3>
   </div>
-  <p class="Back-link"> <%= link_to 'Back', :back %> </p>
+  <p class="Back-link"> <%= link_to "Back", :back %> </p>
   <table class="Table">
     <thead>
       <tr>
@@ -22,10 +22,10 @@
     <tbody>
       <% @order_items.each do |order_item| %>
         <tr>
-          <td><%= order_item.menu_item_name %></td>
-          <td><%= order_item.menu_item_price %></td>
-          <td><%= order_item.quantity %></td>
-          <td><%= order_item.total %></td>
+          <td> <%= order_item.menu_item_name %> </td>
+          <td> <%= order_item.menu_item_price %> </td>
+          <td> <%= order_item.quantity %> </td>
+          <td> <%= order_item.total %> </td>
         </tr>
       <% end %>
     </tbody>

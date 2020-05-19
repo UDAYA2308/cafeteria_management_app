@@ -5,8 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
+    <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
   </head>
 
   <body class="Page">
@@ -21,17 +21,17 @@
             <% end %>
 
             <p> <%= link_to "Menu items ", menu_items_path %> </p>
-            <p> <%= link_to "Order ", new_order_path  %> </p>
+            <p> <%= link_to "Order ", new_order_path %> </p>
             
-            <% if not ( @current_user.is_customer(@current_user.id) ) %>
-                <p> <%= link_to "Pending Orders" , orders_path  %> </p>
+            <% if not(@current_user.is_customer(@current_user.id)) %>
+                <p> <%= link_to "Pending Orders", orders_path %> </p>
             <% end %> 
             <div class="dropdown">
               <button class="dropbt"> 
-                <%= @current_user.first_name %>   <%= ' ( ' + @current_user.role + ' )' if not @current_user.is_customer(@current_user.id) %> 
+                <%= @current_user.first_name %>  <%= " ( " + @current_user.role + " )" if not @current_user.is_customer(@current_user.id) %> 
               </button>
               <div class="dropdown-content">
-                <p> <%= link_to "Your orders" , yourorder_path %> </p>
+                <p> <%= link_to "Your orders", yourorder_path %> </p>
                 <p> <%= link_to "Cart", carts_path %> </p>
 
                 <% if @current_user.is_owner(@current_user.id) %>
@@ -49,9 +49,9 @@
 
     <% end %> 
 
-    <% if flash[:error]%>
+    <% if flash[:error] %>
       <p class="User-error Login-page">
-        <%=flash[:error] %>
+        <%= flash[:error] %>
       </p>
     <% end %>
 

@@ -2,11 +2,11 @@
   <section class="Form-section">
       <h4> Status <h4> 
           <div class="Order-section">
-              <%= radio_button_tag "status", "confirm" , !(@status) %>
+              <%= radio_button_tag "status", "confirm", !(@status) %>
               <p class="Order-status"> Confirm </p>
           </div>
           <div class="Order-section">
-              <%= radio_button_tag "status", "preparing" , @status %>
+              <%= radio_button_tag "status", "preparing", @status %>
               <p class="Order-status"> Preparing </p>
           </div>
           <div class="Order-section">
@@ -16,7 +16,7 @@
           <div>
 
           <div class="Order-section">
-              <%= submit_tag "Update Order", class: "Order-submit"%>
+              <%= submit_tag "Update Order", class: "Order-submit" %>
           </div>
   </section>
 <% end %>

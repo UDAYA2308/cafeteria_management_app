@@ -1,9 +1,9 @@
 <section class="Menu">
-  <h4 id="notice"><%= notice %></h4>
+  <h4 id="notice"> <%= notice %> </h4>
   
   <h1 class="Menu-title">Menus</h1>
 
-  <p class="Menu-new"> <%= link_to 'New Menu', new_menu_path %> </p>
+  <p class="Menu-new"> <%= link_to "New Menu", new_menu_path %> </p>
 
   <table class="Table">
     <thead>
@@ -17,11 +17,11 @@
     <tbody>
       <% @menus.each do |menu| %>
         <tr>
-          <td><%= menu.menu_name %></td>
-          <td><%= menu.active %></td>
-          <td><%= link_to 'Show', menu %></td>
-          <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
-          <td><%= link_to 'Remove', menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td> <%= menu.menu_name %> </td>
+          <td> <%= menu.active %> </td>
+          <td> <%= link_to "Show", menu %> </td>
+          <td> <%= link_to "Edit", edit_menu_path(menu) %> </td>
+          <td> <%= link_to "Remove", menu, method: :delete, data: { confirm: "Are you sure?" } %> </td>
         </tr>
       <% end %>
     </tbody>

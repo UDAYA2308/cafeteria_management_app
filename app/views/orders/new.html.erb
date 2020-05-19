@@ -4,10 +4,9 @@
         <h1 class="Order-title">Walk in customer</h1>
     <% end %>
     <%= render partial: "display_menu",
-        locals: { 
-            menu_items: @menu_items
-        } 
-    %>
+               locals: {
+                 menu_items: @menu_items,
+               } %>
 
     <div>
         <%= form_with url: viewcart_path do |form| %>
