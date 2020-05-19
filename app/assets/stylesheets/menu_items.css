@@ -43,8 +43,9 @@
 .MenuItem-new {
     font-size: 18px;
     font-weight: bold;
+    max-width: 600px;
+    margin: 0 auto;
     margin-bottom: 20px;
-    margin-left: 280px;
 }
 
 .MenuItem-image {
@@ -60,6 +61,7 @@
 
 .MenuItem-view {
     display: flex;
+    justify-content: space-between;
 }
 
 .MenuItem-name {
@@ -74,10 +76,11 @@
     justify-content: flex-end;
 }
 
-.MenuItem-display-end {
-    position: absolute;
-    right: 300px;
+.MenuItem-desc {
+    display: flex;
 }
+
+.MenuItem-display-end {}
 
 .MenuItem-options a {
     font-size: 16px;
