@@ -17,8 +17,8 @@
   </p>
 
   <p class="Menu-label">
-    <strong>Image Url:</strong>
-    <%= @menu_item.image_url %>
+    <strong>Image :</strong>
+    <img src='<%= @menu_item.image_url %>' class="MenuItem-image" alt='Image of <%= @menu_item.menu_item_name %>' />
   </p>
 
   <%= link_to 'Edit', edit_menu_item_path(@menu_item,:current_menu_id => @current_menu_id) %> |

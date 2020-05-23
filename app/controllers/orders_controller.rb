@@ -1,16 +1,13 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-
+  before_action :ensure_owner_or_clerk, only: [:index, :update, :edit]
+  before_action :ensure_owner, only: [:report]
+  
   # GET /orders
   # GET /orders.json
   def index
     @orders = Order.pending_order.order(date: :desc)
     @your_order = false
-  end
-
-  # GET /orders/1
-  # GET /orders/1.json
-  def show
   end
 
   def your_orders
@@ -110,16 +107,6 @@ class OrdersController < ApplicationController
     end
 
     redirect_to orders_path(notice: "Order Status Updated Successfully ")
-  end
-
-  # DELETE /orders/1
-  # DELETE /orders/1.json
-  def destroy
-    @order.destroy
-    respond_to do |format|
-      format.html { redirect_to orders_url, notice: "Order was successfully destroyed." }
-      format.json { head :no_content }
-    end
   end
 
   private

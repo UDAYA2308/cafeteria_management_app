@@ -1,6 +1,8 @@
 class MenusController < ApplicationController
   before_action :set_menu, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_owner
 
+  
   # GET /menus
   # GET /menus.json
   def index
