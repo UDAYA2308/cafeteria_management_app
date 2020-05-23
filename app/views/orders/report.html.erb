@@ -10,7 +10,7 @@
       <p class="Search-label"> To </p>
       <%= date_field_tag "to_date", @to_date, class: "Search-date" %>
       <%= text_field_tag "user_id", nil, value: params[:user_id],
-                                         placeholder: "UserId (optional)",
+                                         placeholder: "User Id or name (optional)",
                                          class: "Search-label" %>
       
       <%= submit_tag "Get", class: "Search-submit" %>
