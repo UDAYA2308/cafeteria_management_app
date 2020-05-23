@@ -85,11 +85,10 @@
 }
 
 .dropdown {
-    margin-right: 120px;
     margin-top: 12px;
     display: inline-block;
     position: absolute;
-    right: 0px;
+    right: 120px;
 }
 
 .dropbt {
@@ -110,12 +109,11 @@
 
 .dropdown-content {
     display: none;
-    position: absolute;
+    position: fixed;
     background-color: white;
-    min-width: 171px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    border-radius: 7px;
+    border-radius: 10px;
 }
 
 .Order-link {
