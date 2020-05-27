@@ -30,13 +30,13 @@
     outline: 0;
     border: none;
     text-decoration: none;
+    font-size: 20px;
 }
 
 .MenuItem-section a:hover,
 .MenuItem a:hover {
     background-color: transparent;
     color: #fc8019 !important;
-    font-size: 20px;
     font-weight: bold;
 }
 
@@ -71,7 +71,6 @@
 
 .MenuItem-options {
     padding: 10px;
-    font-size: 20px;
     display: flex;
     justify-content: flex-end;
 }
@@ -83,7 +82,7 @@
 .MenuItem-display-end {}
 
 .MenuItem-options a {
-    font-size: 16px;
+    font-size: 18px;
     padding: 5px;
 }
 

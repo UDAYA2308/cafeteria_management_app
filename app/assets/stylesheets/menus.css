@@ -9,6 +9,7 @@
 .Table td,
 .Table th {
     border: 3px solid white;
+    margin: 8px;
     padding: 8px;
 }
 
@@ -17,23 +18,18 @@
 }
 
 .Table td {
-    font-size: 17px;
-}
-
-.Table td:hover {
     font-size: 20px;
 }
 
 .Table tr:hover {
     background-color: #D9D9D9;
-    font-weight: bold;
     color: black;
 }
 
 .Table th {
     padding-top: 12px;
     padding-bottom: 12px;
-    font-size: 19px;
+    font-size: 24px;
     background-color: rgb(177, 237, 238);
     color: #282c3f;
 }
