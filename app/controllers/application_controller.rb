@@ -8,13 +8,13 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_owner
-    unless @current_user.is_owner(@current_user.id)
+    unless @current_user.is_owner
       redirect_to "/"
     end
   end
 
   def ensure_owner_or_clerk
-    unless @current_user.is_owner(@current_user.id) or @current_user.is_clerk(@current_user.id) 
+    unless @current_user.is_owner or @current_user.is_clerk
       redirect_to "/"
     end
   end

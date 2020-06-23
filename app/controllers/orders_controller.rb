@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :ensure_owner_or_clerk, only: [:index, :update, :edit]
   before_action :ensure_owner, only: [:report]
-  
+
   # GET /orders
   # GET /orders.json
   def index
@@ -65,7 +65,7 @@ class OrdersController < ApplicationController
   def create
     items = @current_user.carts
     type = "walk in"
-    type = "Online" if @current_user.is_customer(@current_user.id)
+    type = "Online" if @current_user.is_customer
     if items.count > 0
       new_order = Order.create!(
         user_id: @current_user.id,

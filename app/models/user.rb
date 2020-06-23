@@ -6,12 +6,12 @@ class User < ApplicationRecord
   has_many :orders
   has_many :carts
 
-  def is_customer(user_id)
-    User.find(user_id).role == "customer"
+  def is_customer
+    role == "customer"
   end
 
-  def is_owner(user_id)
-    User.find(user_id).role == "owner"
+  def is_owner
+    role == "owner"
   end
 
   def is_clerk

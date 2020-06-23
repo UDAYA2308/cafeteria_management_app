@@ -1,6 +1,6 @@
 <section class="Order">
     <h1 class="Order-title">New Order</h1>
-    <% if not @current_user.is_customer(@current_user.id) %>
+    <% if not @current_user.is_customer %>
         <h1 class="Order-title">Walk in customer</h1>
     <% end %>
     <%= render partial: "display_menu",
