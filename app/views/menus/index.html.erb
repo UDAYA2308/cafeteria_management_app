@@ -19,7 +19,7 @@
         <tr>
           <td> <%= menu.menu_name %> </td>
           <td> <%= menu.active %> </td>
-          <td> <%= link_to "Show", menu %> </td>
+          <td> <%= link_to "Show", menu_items_path(current_menu_id: menu.id) %> </td>
           <td> <%= link_to "Edit", edit_menu_path(menu) %> </td>
           <td> <%= link_to "Remove", menu, method: :delete, data: { confirm: "Are you sure?" } %> </td>
         </tr>
