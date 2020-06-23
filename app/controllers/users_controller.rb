@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :ensure_user_login
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users/new
   def new
@@ -33,7 +34,17 @@ class UsersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
+  def destroy
+    if @user.is_clerk
+      @user.destroy
+      redirect_to clerks_path(:notice => "User was successfully Removed.")
+    end
+  end
 
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
 end
